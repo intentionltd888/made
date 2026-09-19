@@ -95,13 +95,15 @@ function init(host,A){
   var lw=root.querySelector('[data-langs]'), who=root.querySelector('[data-who]'), trb=root.querySelector('[data-tr]'), tri=root.querySelector('[data-tr-img]');
   if(lw){ lw.querySelectorAll('button').forEach(function(b){ function p(){ lw.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b);}); var t=TR[b.dataset.l]; who.textContent=t[0]; trb.textContent=t[1]; if(tri){var u=A+'panel_tr_'+b.dataset.l+'.webp'; if(tri.getAttribute('src')!==u) tri.setAttribute('src',u);} } b.addEventListener('mouseenter',p); b.addEventListener('click',p); b.addEventListener('focus',p); }); }
 
-  /* 頁尾下載數：GitHub Releases 公開 API，所有版本的資產下載數加總；倉庫網址從頁尾 GitHub 連結取（跟 build 參數走）；抓不到就不顯示 */
+  /* 頁尾下載數：基準值（先前已累計、不在目前 Releases 統計裡的下載數）＋ GitHub Releases 公開 API 所有版本的資產下載數加總；
+     倉庫網址從頁尾 GitHub 連結取（跟 build 參數走）；抓不到就不顯示 */
+  var DL_BASE=39;
   var dl=root.querySelector('[data-dl]'), gh=root.querySelector('.foot2 a[href*="github.com/"]');
   var gm=gh&&/github\.com\/([^\/]+)\/([^\/#?]+)/.exec(gh.getAttribute('href')||'');
   if(dl&&gm&&typeof fetch==='function'){
     fetch('https://api.github.com/repos/'+gm[1]+'/'+gm[2]+'/releases?per_page=100',{headers:{Accept:'application/vnd.github+json'}})
       .then(function(r){return r.ok?r.json():null;})
-      .then(function(j){ if(!j||!j.length) return; var n=0; j.forEach(function(rel){ (rel.assets||[]).forEach(function(a){ n+=a.download_count||0; }); }); if(n>0){ dl.textContent=' / '+n.toLocaleString('en-US')+' downloads'; dl.hidden=false; } })
+      .then(function(j){ if(!j) return; var n=DL_BASE; j.forEach(function(rel){ (rel.assets||[]).forEach(function(a){ n+=a.download_count||0; }); }); if(n>0){ dl.textContent=' / '+n.toLocaleString('en-US')+' downloads'; dl.hidden=false; } })
       .catch(function(){});
   }
 
