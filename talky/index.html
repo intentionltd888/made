@@ -39,6 +39,7 @@
 .tk .pill.line{background:#fff;color:var(--blue);box-shadow:inset 0 0 0 2px var(--blue)}
 .tk .pill.line:hover{background:#EEF2FF}
 .tk .ctas{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.tk .sendnote{font-family:var(--zh);font-weight:500;font-size:13px;line-height:1.6;margin-top:10px;opacity:.85}
 .tk .lnk::after{content:"_"}
 .tk .pb{display:inline-flex;align-items:center;gap:6px}
 .tk .pb img{height:9px;width:auto}
@@ -204,6 +205,7 @@
 .tk .ladder .d{grid-column:2;font-size:15px;line-height:1.6;color:var(--deep);margin-top:6px;max-width:34em}
 .tk .ladder li.on .t,.tk .ladder li.on .n{color:var(--blue)}
 .tk .flow svg{width:100%;height:auto;display:block}
+.tk .flow svg.fv{display:none}
 .tk .flow .pulse{stroke-dasharray:4 12;stroke-linecap:round;animation:tkPulse 1.6s linear infinite}
 .tk .flow .pulse.slow{animation-duration:2.4s}
 .tk .flow .caret{animation:tkBlink 1s steps(2) infinite}
@@ -300,7 +302,7 @@
   .tk .morph .paste{font-size:26px;min-height:2.6em}
   .tk .langs{gap:0 14px}
   .tk .tr-out{font-size:24px}
-  .tk .flow{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(-1*var(--m));padding:0 var(--m)}.tk .flow svg{width:640px;max-width:none}
+  .tk .flow svg.fh{display:none}.tk .flow svg.fv{display:block;width:100%;max-width:420px;margin:0 auto}
   .tk .ctas{margin-top:18px}
   .tk .spec{grid-template-columns:1fr}
   .tk .spec span{white-space:normal;border-top:0;padding:2px 0}
@@ -439,7 +441,7 @@
 <section class="paper" id="how">
   <div class="grid">
     <div class="sub flow">
-      <svg viewBox="0 0 780 460" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-labelledby="fd">
+      <svg class="fh" viewBox="0 0 780 460" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-labelledby="fd">
         <title id="fd">你講話，麥克風進你的 Mac，在本機聽寫，整理成句子，貼進游標所在的框。只有你選了 AI 訂閱時，文字才出去，聲音永遠不出去</title>
                 <rect x="10.5" y="170.5" width="759" height="250" rx="18" fill="none" stroke="#0C0C0E"/>
         <text x="30" y="198" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#0C0C0E">YOUR MAC_</text>
@@ -474,6 +476,42 @@
           <text x="680" y="388" text-anchor="middle" stroke="none" fill="#6C7674" font-family="Noto Sans TC,PingFang TC,sans-serif" font-weight="500" font-size="13">游標在哪，貼哪</text>
         </g>
         <text x="30" y="446" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#6C7674">no AI picked: raw transcript stays on the panel</text>
+      </svg>
+      <svg class="fv" viewBox="0 0 360 690" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-labelledby="fd2">
+        <title id="fd2">你講話，麥克風進你的 Mac，在本機聽寫，整理成句子，貼進游標所在的框。只有你選了 AI 訂閱時，文字才出去，聲音永遠不出去</title>
+        <rect x="10.5" y="110.5" width="339" height="530" rx="18" fill="none" stroke="#0C0C0E"/>
+        <text x="30" y="138" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#0C0C0E">YOUR MAC_</text>
+        <text x="300" y="138" text-anchor="end" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#6C7674">voice never leaves</text>
+        <path d="M264 240V279M264 351V392M264 468V518" fill="none" stroke="#0C0C0E" stroke-width="1"/>
+        <path class="pulse" d="M264 240V279M264 351V392M264 468V518" fill="none" stroke="#0C0C0E" stroke-width="2"/>
+        <path d="M292 430H326V84" fill="none" stroke="#003CFF" stroke-width="1" stroke-dasharray="3 5"/>
+        <path d="M326 84V430H292" class="pulse slow" fill="none" stroke="#003CFF" stroke-width="2"/>
+        <g fill="none" stroke="#003CFF" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" transform="translate(326 50)">
+          <rect x="-20" y="-28" width="40" height="52" rx="4"/><path d="M-11 -12h22M-11 -2h22M-11 8h12"/>
+        </g>
+        <text x="292" y="42" text-anchor="end" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="13" font-weight="700" fill="#003CFF">your own AI subscription</text>
+        <text x="292" y="62" text-anchor="end" font-family="Noto Sans TC,PingFang TC,sans-serif" font-weight="500" font-size="13" fill="#003CFF">只有文字出去，只在你選了它的時候</text>
+        <g class="st" fill="none" stroke="#0C0C0E" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+          <g class="ic" transform="translate(264 200)"><rect x="-11" y="-32" width="22" height="42" rx="11"/><path d="M-19 -2a19 19 0 0 0 38 0M0 17v13M-11 30h22"/></g>
+          <text x="200" y="196" text-anchor="end" stroke="none" fill="#0C0C0E" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700">You talk</text>
+          <text x="200" y="218" text-anchor="end" stroke="none" fill="#6C7674" font-family="Noto Sans TC,PingFang TC,sans-serif" font-weight="500" font-size="13">右 ⌘ 兩下，放開就停</text>
+        </g>
+        <g class="st" fill="none" stroke="#0C0C0E" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+          <g class="ic" transform="translate(264 315)"><rect x="-30" y="-26" width="60" height="38" rx="3"/><path d="M-40 18h80l5 8h-90z"/><path d="M-18 -10v6M-10 -16v18M-2 -11v8M6 -18v22M14 -12v10M22 -9v4" stroke-width="2"/></g>
+          <text x="200" y="311" text-anchor="end" stroke="none" fill="#0C0C0E" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700">Mac listens</text>
+          <text x="200" y="333" text-anchor="end" stroke="none" fill="#6C7674" font-family="Noto Sans TC,PingFang TC,sans-serif" font-weight="500" font-size="13">在你電腦裡聽寫，離線</text>
+        </g>
+        <g class="st">
+          <image xlink:href="https://intentionltd888.github.io/made/talky/assets/talky_mark_black.webp" href="https://intentionltd888.github.io/made/talky/assets/talky_mark_black.webp" x="236" y="402" width="56" height="56"/>
+          <text x="200" y="426" text-anchor="end" fill="#0C0C0E" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700">Tidied up</text>
+          <text x="200" y="448" text-anchor="end" fill="#6C7674" font-family="Noto Sans TC,PingFang TC,sans-serif" font-weight="500" font-size="13">內建模型，整理成一句</text>
+        </g>
+        <g class="st" fill="none" stroke="#0C0C0E" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+          <g class="ic" transform="translate(264 545)"><rect x="-36" y="-17" width="72" height="34" rx="9"/><path class="caret" d="M-22 -8v16" stroke-width="2"/><path d="M-13 0h34" stroke-width="3" opacity=".22"/></g>
+          <text x="200" y="541" text-anchor="end" stroke="none" fill="#0C0C0E" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="14" font-weight="700">Pasted</text>
+          <text x="200" y="563" text-anchor="end" stroke="none" fill="#6C7674" font-family="Noto Sans TC,PingFang TC,sans-serif" font-weight="500" font-size="13">游標在哪，貼哪</text>
+        </g>
+        <text x="30" y="672" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-size="12" font-weight="700" fill="#6C7674">no AI picked: raw transcript stays on the panel</text>
       </svg>
     </div>
     <div class="col">
@@ -557,6 +595,14 @@
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target; if(e.isIntersecting){var p=v.play(); if(p&&p.catch) p.catch(function(){});} else {v.pause();}});},{threshold:.2});
   root.querySelectorAll('video').forEach(function(v){v.muted=true; vo.observe(v);});
+
+  /* 不是 Mac 的裝置：主鍵改成把這頁傳到 Mac（系統分享；不支援就複製連結） */
+  (function(){var isMac=/Mac/i.test(navigator.platform||navigator.userAgent||'')&&(navigator.maxTouchPoints||0)<2; if(isMac) return;
+    [].forEach.call(root.querySelectorAll('a.pill'),function(a){ if(a.textContent.trim()!=='Download for Mac') return; var T='Send to my Mac'; a.textContent=T; a.setAttribute('role','button');
+      var n=document.createElement('p'); n.className='sendnote'; n.textContent='Talky 裝在 Mac 上，先把這頁傳過去'; var host=a.parentNode.classList.contains('ctas')?a.parentNode:a; host.parentNode.insertBefore(n,host.nextSibling);
+      a.addEventListener('click',function(e){ e.preventDefault(); var d={title:document.title,url:location.href.split('#')[0]};
+        if(navigator.share){ navigator.share(d).catch(function(){}); }
+        else if(navigator.clipboard){ navigator.clipboard.writeText(d.url).then(function(){ a.textContent='Link copied'; setTimeout(function(){a.textContent=T;},2200); }); } }); }); })();
 
   /* §2 賽跑：200 字；33 字/分 → 6:04；講 1:00 ＋ 整理 0:04 → 1:04；畫面 20 倍速；字都是一整條 */
   var TXT='我們明天下午三點要開會，地點改到二樓。這次先把提案的三個方向講清楚：第一個是品牌影片的節奏，第二個是預算怎麼分，第三個是九月底前要交的東西。會前請大家把自己負責的部分整理成一頁，開會直接看，不用再另外做簡報。有問題先丟群組，不要等到會上才講。另外，客戶那邊下週要看初剪，所以影片組這幾天先把素材全部收齊，音樂版權也要先問清楚，不要到時候又卡在授權，這件事麻煩影片組今天先處理，其他的等開完會再一起講掉';
