@@ -8,8 +8,8 @@ document.addEventListener('click',function(e){if(!p)return;var a=e.target&&e.tar
 var same=function(t){return t.replace(/\/+$/,'')};
 if(u.origin===location.origin&&same(u.pathname)===same(location.pathname)&&!u.searchParams.get('p')&&!u.hash){e.preventDefault();e.stopPropagation();location.assign(u.pathname)}},true);
 if(p==='talky'){load(here+'talky-element.js');return}
-var V=p==='hearby'?{tag:'hearby-page',src:here+'../hearby/hearby-page.js',title:'Hearby　開會前按一下，結束就有一份紀錄'}:{tag:'made-index',src:here+'../made/made-index.js',title:'INTENTION Made'};
-window.MADE_LINKS={talky:'/made?p=talky',hearby:'/made?p=hearby'};
+var V=p==='hearby'?{tag:'hearby-page',src:here+'../hearby/hearby-page.js',title:'Hearby　開會前按一下，結束就有一份紀錄'}:p==='fully'?{tag:'fully-page',src:here+'../fully/fully-page.js',title:'Fully　貼上網址，存下原尺寸'}:{tag:'made-index',src:here+'../made/made-index.js',title:'INTENTION Made'};
+window.MADE_LINKS={talky:'/made?p=talky',hearby:'/made?p=hearby',fully:'/made?p=fully'};
 function mount(host){if(host.__routed)return;host.__routed=1;host.style.display='block';host.style.width='100%';
 host.appendChild(document.createElement(V.tag));
 host.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href*="?p="]');if(a){e.preventDefault();location.assign(a.getAttribute('href'))}})}
