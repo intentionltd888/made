@@ -265,7 +265,11 @@
   .tk .scene>video{position:absolute;top:0;left:0;width:100%;height:auto;aspect-ratio:4/5;bottom:auto;object-position:var(--mpos,0 50%)}
   .tk.grain .scene::after{bottom:auto;height:auto;aspect-ratio:4/5}
   .tk .scene.split>img{width:100%;aspect-ratio:4/5}
-  .tk .hero{height:auto;min-height:0;--mpos:6% 50%}
+  .tk .hero{height:auto;min-height:0;--mpos:6% 30%}
+  /* 首屏照片讓位給標語和主鍵：JS 量好高度寫進 --hh（最扁 2:1，只切上下的天空與草地；最高 4:5）；字標最寬跟手機一樣 */
+  .tk .hero .lt{max-width:360px}
+  .tk .hero.fit>img,.tk .hero.fit>video{aspect-ratio:auto;height:var(--hh)}
+  .tk.grain .hero.fit::after{aspect-ratio:auto;height:var(--hh)}
   .tk #grass{--mpos:0 50%}.tk #daily{--mpos:9% 50%}
   .tk .scene .col{position:static;transform:none;width:auto;left:auto;right:auto;padding:26px var(--m) 8px;color:var(--ink)}
   .tk .scene .col.mid,.tk .scene .col.up,.tk .scene .col.down,.tk .hero .col{position:static;transform:none;top:auto;bottom:auto;left:auto;right:auto}
@@ -603,6 +607,15 @@
       a.addEventListener('click',function(e){ e.preventDefault(); var d={title:document.title,url:location.href.split('#')[0]};
         if(navigator.share){ navigator.share(d).catch(function(){}); }
         else if(navigator.clipboard){ navigator.clipboard.writeText(d.url).then(function(){ a.textContent='Link copied'; setTimeout(function(){a.textContent=T;},2200); }); } }); }); })();
+
+  /* 窄視窗（≤900）首屏：照片縮到標語和主鍵都在第一屏（最扁 2:1，最高 4:5）；只看寬度，捲動時網址列伸縮不重算 */
+  (function(){var hero=root.querySelector('.hero'), img=hero&&hero.querySelector(':scope>img'), pill=hero&&hero.querySelector('a.pill'), lastW=0; if(!img||!pill) return;
+    function fit(){var W=hero.offsetWidth; if(!W||W===lastW) return; lastW=W;
+      if(!window.matchMedia('(max-width:900px)').matches){ hero.classList.remove('fit'); return; }
+      var r=img.getBoundingClientRect(), need=pill.getBoundingClientRect().bottom-r.bottom;
+      var h=Math.max(W/2,Math.min(W*5/4,window.innerHeight-(r.top+window.pageYOffset)-need-20));
+      hero.style.setProperty('--hh',Math.round(h)+'px'); hero.classList.add('fit');}
+    fit(); window.addEventListener('resize',fit); if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){lastW=0; fit();}); })();
 
   /* §2 賽跑：200 字；33 字/分 → 6:04；講 1:00 ＋ 整理 0:04 → 1:04；畫面 20 倍速；字都是一整條 */
   var TXT='我們明天下午三點要開會，地點改到二樓。這次先把提案的三個方向講清楚：第一個是品牌影片的節奏，第二個是預算怎麼分，第三個是九月底前要交的東西。會前請大家把自己負責的部分整理成一頁，開會直接看，不用再另外做簡報。有問題先丟群組，不要等到會上才講。另外，客戶那邊下週要看初剪，所以影片組這幾天先把素材全部收齊，音樂版權也要先問清楚，不要到時候又卡在授權，這件事麻煩影片組今天先處理，其他的等開完會再一起講掉';
