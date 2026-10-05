@@ -12,7 +12,7 @@ var L=window.MADE_LINKS||{};
 var ITEMS=[
 {id:'talky',body:'talky_body.png',face:'talky_face.png',mark:'talky_glyph.png',cat:'apps',href:'/talky',os:'macOS',wm:'talky_logotype_black.png',alt:'talky',line:"Don't type, just Talky",zh:'最穩的語音輸入法',tags:'完全離線、支援翻譯',side:[38,40,46],glyph:[255,255,255]},
 {id:'hearby',body:'hearby_body.png',face:'hearby_face.png',mark:'hearby_glyph.png',cat:'apps',href:'/hearby',os:'macOS / Windows',wm:'hearby_logotype_black.png',alt:'hearby',line:"Don't take notes. Noted.",zh:'可以回流的會議紀錄軟體',tags:'錄音不出電腦、下次還記得',side:[0,44,190],glyph:[255,255,255]},
-{id:'fully',body:'fully_body.png',face:'fully_face.png',mark:'fully_glyph.png',cat:'apps',href:'/fully',os:'macOS',wm:'fully_logotype_black.png',alt:'fully',line:"Paste the link. Get it fully.",zh:'圖存原尺寸，影片存最高畫質',tags:'整個圖版、不上傳',side:[196,72,8],glyph:[250,247,242]}
+{id:'fully',body:'fully_body.png',face:'fully_face.png',mark:'fully_glyph.png',cat:'apps',href:'/fully',os:'macOS',wm:'fully_logotype_black.png',alt:'fully',line:"Paste the link. Get it fully.",zh:'圖和影片，都存原尺寸',tags:'整個圖版、不上傳',side:[196,72,8],glyph:[250,247,242]}
 ];
 var BODY=14,GLYPH=6;
 function icon(it){
